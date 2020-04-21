@@ -15,8 +15,4 @@ $list = array (
   
   fclose($file);
 
-echo 'Recibi '.$_GET['var'];
-
-echo 'Recibi '.$_GET['var'];
-
 ?>
