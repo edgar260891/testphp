@@ -1,23 +1,10 @@
+<!DOCTYPE html>
 <html>
 
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-    <!-- PLEASE NO CHANGES BELOW THIS LINE (UNTIL I SAY SO) -->
-    <script language="javascript" type="text/javascript" src="libraries/p5.min.js"></script>
-    <script language="javascript" type="text/javascript" src="google_drive_api_t1.js"></script>
-    <!-- OK, YOU CAN MAKE CHANGES BELOW THIS LINE AGAIN -->
-
-    <!-- This line removes any default padding and style.
-       You might only need one of these values set. -->
-    <style>
-        body {
-            padding: 0;
-            margin: 0;
-        }
-    </style>
-
+    <title>
+        Call PHP File via AJAX
+    </title>
     <script>
         function ajaxcall() {
             // GET DATA
@@ -27,7 +14,7 @@
 
             // AJAX CALL
             var xhr = new XMLHttpRequest();
-            xhr.open('POST', "t1.php", true);
+            xhr.open('POST', "1b-ajax.php", true);
             xhr.onload = function() {
                 var res = JSON.parse(this.response);
                 if (res.status) {
