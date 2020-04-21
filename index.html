@@ -1,44 +1,32 @@
 <!DOCTYPE html>
 <html>
 
-<head>
-    <title>
-        Call PHP File via AJAX
-    </title>
-    <script>
-        function ajaxcall() {
-            // GET DATA
-            var data = new FormData();
-            data.append('name', document.getElementById("user-name").value);
-            data.append('email', document.getElementById("user-email").value);
-
-            // AJAX CALL
-            var xhr = new XMLHttpRequest();
-            xhr.open('POST', "t1.php", true);
-            xhr.onload = function() {
-                var res = JSON.parse(this.response);
-                if (res.status) {
-                    // OK - DO SOMETHING
-                    alert(res.message);
-                } else {
-                    // ERROR - DO SOMETHING
-                    alert(res.message);
-                }
-            };
-            xhr.send(data);
-            return false;
-        }
-    </script>
-</head>
-
 <body>
-    <form onsubmit="return ajaxcall();">
-        <label for="user-name">Name</label>
-        <input type="text" id="user-name" required/>
-        <label for="user-email">Email</label>
-        <input type="email" id="user-email" required/>
-        <input type="submit" value="Save" />
-    </form>
+
+    <input type="button" value="Enviar variable" id="send" />
+
 </body>
+
+<script src="https://code.jquery.com/jquery-3.4.1.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
+
+<script type="text/javascript">
+    $('#send').click(function() {
+
+        alert('Enviando!');
+
+        $.ajax({
+
+            url: 'funciones.php?var=<?php echo $var; ?>',
+
+            success: function(data) {
+
+                alert('El servidor devolvio "' + data + '"');
+
+            }
+
+        })
+
+    });
+</script>
 
 </html>
